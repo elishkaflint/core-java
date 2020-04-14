@@ -4,16 +4,32 @@ public class LambdaExpression {
 
     public static void main(String[] args) {
 
-        MyInterface imperativeImplementation = new MyInterface() {
+        // ------------------------------------------
+        // Using a class instance (normal way)
+        // ------------------------------------------
+
+        MyInterface withClassInstance = new InterfaceImplementation();
+        withClassInstance.doAThing();
+
+        // ------------------------------------------
+        // Using an anonymous function
+        // Quicker than creating a whole new class
+        // ------------------------------------------
+
+        MyInterface withAnonymousFunction = new MyInterface() {
             public void doAThing() {
-                System.out.println("Hello from my imperative interface implementation");
+                System.out.println("Doing a thing");
             }
         };
-        imperativeImplementation.doAThing();
+        withAnonymousFunction.doAThing();
 
+        // ------------------------------------------
+        // Using a lambda
+        // Quicker than creating a whole new class, also more readable
+        // ------------------------------------------
 
-        MyInterface functionalImplementation = () -> System.out.println("Hello from my functional interface implementation");
-        functionalImplementation.doAThing();
+        MyInterface withLambda = () -> System.out.println("Doing a thing");
+        withLambda.doAThing();
 
     }
 
